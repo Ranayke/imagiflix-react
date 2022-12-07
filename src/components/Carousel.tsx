@@ -1,29 +1,41 @@
 import React from 'react';
 import Slick from 'react-slick';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import mockData, { Movie } from '../data/mock';
-
-const Poster = ({ cover, title, score } : Movie, index: number) => (
-    <article key={index}>
-        <img src={cover} alt={title} />
-    </article>
-);
-
+import Poster from './Poster';
+import './Carousel.css';
 
 
 interface CarouselData {
     title?: string;
     data?: Movie[];
-}
+};
 
 const Carousel = ({ title = 'Carousel', data = mockData } : CarouselData) => {
+    enum Direction {
+        left,
+        right,
+    }
+
+    const SlickArrow = ({ direction, onClick }: { direction: Direction, onClick?: () => void }) => (
+        <button 
+            type='button'
+            className={`absolute w-16 h-full z-10 bg-black bg-opacity-50 top-0 
+            ${direction ? 'right-0' : 'left-0'}`}
+            onClick={onClick}
+            >
+                <FontAwesomeIcon icon={direction ? faChevronRight : faChevronLeft} size='2x' />
+        </button>
+    )
 
     const options = {
         infinite: true,
         slidesToScroll: 1,
         variableWidth: true,
-/*         prevArrow: '',
-        nextArrow: '', */
+        prevArrow: <SlickArrow direction={Direction.left} />,
+        nextArrow: <SlickArrow direction={Direction.right} />, 
     };
 
     return (
