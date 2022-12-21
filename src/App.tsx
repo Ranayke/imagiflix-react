@@ -10,9 +10,11 @@ import Carousel from './components/Carousel';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Loading from './components/Loading';
 
 const App = () => {
   const [ movies, setMovies ] = useState<any[]>([]);
+  const [ loading, setLoading ] = useState<boolean>(true);
   const url = `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`
 
   useEffect(() => {
@@ -26,11 +28,12 @@ const App = () => {
     }
 
     fetchData();
+    setLoading(false);
   }, [url]);
 
   return (
     <div className="m-auto antialiased font-sans bg-black text-white">
-      <Hero {...movies[0]}/>
+      {loading ? <Loading/> : <Hero {...movies[0] } />}
       <NavBar />
       <Carousel />
       <Carousel />
