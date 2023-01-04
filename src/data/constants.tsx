@@ -5,6 +5,7 @@ const APISTRING = `?api_key=${APIKEY}&language=pt-BR`;
 const EVENTS = {
   PosterClick: "PosterClick",
   ModalClose: "ModalClose",
+  Search: "Search",
 };
 
 export { URL, IMAGEURL, APIKEY, APISTRING, EVENTS };
