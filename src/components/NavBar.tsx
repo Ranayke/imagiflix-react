@@ -35,10 +35,10 @@ const NavBar = () => {
         <ul className="grid grid-flow-col gap-4">
           <li className="font-bold">Início</li>
           <li>
-            <a href="#series"></a>Séries
+            <a href="#series">Séries</a>
           </li>
           <li>
-            <a href="#movies"></a>Filmes
+            <a href="#movies">Filmes</a>
           </li>
         </ul>
       </div>
