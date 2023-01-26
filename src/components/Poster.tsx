@@ -7,7 +7,7 @@ import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 
 import Score from "./Score";
 
-import { Movie, TitleType, Title } from "../data/mock";
+import { Movie, TitleType } from "../data/mock";
 
 import emitter from "../utils/eventEmitter";
 
