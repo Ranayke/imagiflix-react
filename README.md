@@ -37,7 +37,6 @@ https://imagiflix-react-web.netlify.app/
 
 ## Estudado
 * React
-* Styled Components
 * Typescript
 * Tailwind
 * Componentização
